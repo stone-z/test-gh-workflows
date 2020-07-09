@@ -183,6 +183,9 @@ jobs:
 
   create-release-branch:
     runs-on: ubuntu-18.04
+    needs:
+      - gather_facts
+    if: ${{ needs.gather_facts.outputs.version }}
     steps:
       - uses: actions/checkout@v2
         name: Check out the repository
@@ -194,6 +197,9 @@ jobs:
 
       - name: Set up python dependencies
         run: "pip3 install gitpython==3.1.3 semver==2.10.2"
+
+      - name: Set release version
+        run: "export GITHUB_TAG_NAME=${{ needs.gather_facts.outputs.version }}"
 
       - name: Create the script containing the branch logic
         run: |
@@ -221,7 +227,7 @@ jobs:
           repo = Repo(os.getcwd())  # Reference the repo from our current directory
 
           # Get the current tag from env and strip quotation marks
-          current_tag = os.environ.get("GITHUB_REF").strip('"')
+          current_tag = os.environ.get("GITHUB_TAG_NAME").strip('"')
 
           # Remove GitHub ref path
           current_tag = removeprefix(current_tag, p)

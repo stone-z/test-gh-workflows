@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.1] - 2020-07-09
+
 [Unreleased]: https://github.com/stone-z/test-gh-workflows/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/stone-z/test-gh-workflows/compare/v0.0.1...v0.0.1
 <!-- [0.0.2]: https://github.com/stone-z/test-gh-workflows/compare/v0.0.1...v0.0.2 -->
 [0.0.1]: https://github.com/stone-z/test-gh-workflows/releases/tag/v0.0.1
